@@ -1,0 +1,6 @@
+/Users/lucas/Projects/SistemaBancario/SistemaBancario/bin/Debug/SistemaBancario.exe
+/Users/lucas/Projects/SistemaBancario/SistemaBancario/bin/Debug/SistemaBancario.pdb
+/Users/lucas/Projects/SistemaBancario/SistemaBancario/obj/x86/Debug/SistemaBancario.csprojAssemblyReference.cache
+/Users/lucas/Projects/SistemaBancario/SistemaBancario/obj/x86/Debug/SistemaBancario.csproj.CoreCompileInputs.cache
+/Users/lucas/Projects/SistemaBancario/SistemaBancario/obj/x86/Debug/SistemaBancario.exe
+/Users/lucas/Projects/SistemaBancario/SistemaBancario/obj/x86/Debug/SistemaBancario.pdb
