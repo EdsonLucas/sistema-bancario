@@ -13,6 +13,21 @@ namespace SistemaBancario
 
             Banco banco = new Banco();
 
+            //Carrega de arquivo
+            try
+            {
+                using (Stream stream = File.Open("data.bin", FileMode.Open))
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
+
+                    banco = (Banco)bin.Deserialize(stream);
+                }
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("Deu ruim");
+            }
+
             while (Opcao != 0)
             {
                 Console.Clear();
@@ -582,6 +597,21 @@ namespace SistemaBancario
                         Console.WriteLine("Opção Inválida, pressione uma tecla para tentar novamente...");
                         break;
                 }
+            }
+
+
+            //Salva em arquivo
+            try
+            {
+                using (Stream stream = File.Open("data.bin", FileMode.Create))
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
+                    bin.Serialize(stream, banco);
+                }
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("Deu ruim");
             }
         }
     }
