@@ -1,6 +1,7 @@
 ﻿using System;
 namespace SistemaBancario
 {
+    [Serializable]
     public class Cliente
     {
         public int Cpf;

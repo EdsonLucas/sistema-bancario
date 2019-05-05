@@ -40,6 +40,7 @@
     <Compile Include="Cartao.cs" />
     <Compile Include="Funcionario.cs" />
     <Compile Include="ContaCorrente.cs" />
+    <Compile Include="Gerente.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

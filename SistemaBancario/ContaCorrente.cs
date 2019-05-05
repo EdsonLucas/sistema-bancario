@@ -1,6 +1,7 @@
 ﻿using System;
 namespace SistemaBancario
 {
+    [Serializable]
     public class ContaCorrente
     {
         public int Numero;
@@ -9,9 +10,8 @@ namespace SistemaBancario
         public Cliente Titular2;
         public int TipoConta;
         public double Emprestimo;
-        double TaxaEmprestimo = 0.1;
-        double TaxaMovimentacao;
-        double LimiteCredito;
+        double TaxaJuros = 0.1;
+        double TaxaMovimentacao = 0.01;
 
         public ContaCorrente(int Numero, double Saldo, Cliente Titular1)
         {
@@ -34,6 +34,7 @@ namespace SistemaBancario
         {
             if(this.Saldo >= valor)
             {
+                valor -= valor * TaxaMovimentacao;
                 this.Saldo -= valor;
                 return true;
             }
@@ -42,6 +43,7 @@ namespace SistemaBancario
 
         public void Deposita(double valor)
         {
+            valor -= valor * TaxaMovimentacao;
             this.Saldo += valor;
         }
 
@@ -49,6 +51,7 @@ namespace SistemaBancario
         {
             if (this.Saca(valor))
             {
+                valor -= valor * TaxaMovimentacao;
                 destino.Saldo += valor;
                 return true;
             }
@@ -57,7 +60,7 @@ namespace SistemaBancario
 
         public bool Transfere(double valor, ContaPoupanca destino)
         {
-            if (this.Saca(valor))
+            if (this.Saca(valor + valor * TaxaMovimentacao))
             {
                 destino.Deposita(valor);
                 return true;
@@ -71,11 +74,15 @@ namespace SistemaBancario
             {
                 return false;
             }
-            if(this.Titular2.NomeSujo)
+            if (this.TipoConta == 2)
             {
-                return false;
+                if (this.Titular2.NomeSujo)
+                {
+                    return false;
+                }
             }
             this.Emprestimo += valor;
+            this.Saldo += valor;
             return true;
 
         }
@@ -85,6 +92,8 @@ namespace SistemaBancario
             if(this.Saldo >= valor)
             {
                 this.Emprestimo -= valor;
+                valor += valor * TaxaJuros;
+                this.Saldo -= valor;
                 return true;
             }
             return false;

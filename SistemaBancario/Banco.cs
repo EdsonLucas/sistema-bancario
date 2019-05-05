@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace SistemaBancario
 {
+    [Serializable]
     public class Banco
     {
         int NDC = 0;
@@ -13,6 +14,14 @@ namespace SistemaBancario
         List<ContaCorrente> ContaCorrente = new List<ContaCorrente>();
         List<ContaPoupanca> ContaPoupanca = new List<ContaPoupanca>();
         List<Cartao> Cartao = new List<Cartao>();
+        List<Funcionario> Funcionario = new List<Funcionario>();
+
+        public void AdicionaFuncionario(string Nome, int Cpf)
+        {
+            this.Funcionario.Add(new Funcionario(Nome, this.NDC, Cpf));
+            Console.WriteLine("Funcionário cadastrado com sucesso!");
+            NDC++;
+        }
 
         public void AdicionaContaCorrente(double valor, Cliente Titular)
         {
@@ -63,6 +72,18 @@ namespace SistemaBancario
             }
         }
 
+        public void RemoveFuncionario(int procurado)
+        {
+            foreach (Funcionario func in Funcionario.ToList())
+            {
+                if (func.Codigo == procurado)
+                {
+                    Funcionario.Remove(func);
+                    Console.WriteLine("Funcionário deletado com sucesso!");
+                }
+            }
+        }
+
         public bool AdicionaTitular(Cliente Titular, ContaCorrente conta)
         {
             if(conta.TipoConta == 1)
@@ -87,15 +108,50 @@ namespace SistemaBancario
 
         public void ListaContas()
         {
+
+            Console.WriteLine("Conta Corrente:");
             foreach (ContaCorrente conta in ContaCorrente)
             {
-                Console.WriteLine(conta.Numero + " - " + conta.Titular1.Nome);
+                if(conta.TipoConta == 2)
+                {
+                    Console.WriteLine(conta.Numero + " - " + conta.Titular1.Nome + " / " + conta.Titular2.Nome);
+                } else
+                {
+                    Console.WriteLine(conta.Numero + " - " + conta.Titular1.Nome);
+                }
+
+                Console.WriteLine("Saldo: " + conta.Saldo);
             }
 
+            Console.WriteLine("\n");
+
+            Console.WriteLine("Conta Poupança:");
             foreach (ContaPoupanca conta in ContaPoupanca)
             {
-                Console.WriteLine(conta.Numero + " - " + conta.Titular1.Nome);
+                if (conta.TipoConta == 2)
+                {
+                    Console.WriteLine(conta.Numero + " - " + conta.Titular1.Nome + " / " + conta.Titular2.Nome);
+                }
+                else
+                {
+                    Console.WriteLine(conta.Numero + " - " + conta.Titular1.Nome);
+                }
+
+                Console.WriteLine("Saldo: " + conta.Saldo);
             }
+        }
+
+        public void ListaFuncionarios()
+        {
+            foreach (Funcionario func in Funcionario)
+            {
+                Console.WriteLine("\n-------------------------");
+                Console.WriteLine("CÓDIGO : " + func.Codigo);
+                Console.WriteLine("NOME : " + func.Nome);
+                Console.WriteLine("CPF: " + func.Cpf);
+                Console.WriteLine("-------------------------");
+            }
+
         }
 
         public void ListaCliente()
@@ -248,12 +304,12 @@ namespace SistemaBancario
                                         if (procuraCartao(conta.Titular2))
                                         {
                                             this.Cartao.Add(new Cartao(this.NDC, conta.Titular1, 1000));
-                                            Console.WriteLine("Cartão vinculado ao cliente " + conta.Titular1.Nome + " com sucesso!");
+                                            Console.WriteLine("Cartão " + this.NDC + " vinculado ao cliente " + conta.Titular1.Nome + " com sucesso!");
                                         }
                                         else
                                         {
                                             this.Cartao.Add(new Cartao(this.NDC, conta.Titular1, 2000));
-                                            Console.WriteLine("Cartão vinculado ao cliente " + conta.Titular1.Nome + " com sucesso!");
+                                            Console.WriteLine("Cartão " + this.NDC + " vinculado ao cliente " + conta.Titular1.Nome + " com sucesso!");
                                         }
                                     }
                                     else
@@ -267,11 +323,11 @@ namespace SistemaBancario
                                         if (procuraCartao(conta.Titular1))
                                         {
                                             this.Cartao.Add(new Cartao(this.NDC, conta.Titular2, 1000));
-                                            Console.WriteLine("Cartão vinculado ao cliente " + conta.Titular2.Nome + " com sucesso!");
+                                            Console.WriteLine("Cartão " + this.NDC + " vinculado ao cliente " + conta.Titular2.Nome + " com sucesso!");
                                         } else
                                         {
                                             this.Cartao.Add(new Cartao(this.NDC, conta.Titular2, 2000));
-                                            Console.WriteLine("Cartão vinculado ao cliente " + conta.Titular2.Nome + " com sucesso!");
+                                            Console.WriteLine("Cartão " + this.NDC + " vinculado ao cliente " + conta.Titular2.Nome + " com sucesso!");
                                         }
                                     }
                                     else
@@ -290,7 +346,7 @@ namespace SistemaBancario
                         if(!procuraCartao(conta.Titular1))
                         {
                             this.Cartao.Add(new Cartao(this.NDC, conta.Titular1, 2000));
-                            Console.WriteLine("Cartão vinculado ao cliente " + conta.Titular1.Nome + " com sucesso!");
+                            Console.WriteLine("Cartão " + this.NDC + " vinculado ao cliente " + conta.Titular1.Nome + " com sucesso!");
                         } else
                         {
                             Console.WriteLine("Já existe um cartão vinculado à esse cliente.");
@@ -344,6 +400,69 @@ namespace SistemaBancario
             Console.WriteLine("O total a receber é de R$" + this.Receber);
         }
 
+        public void PassaMes()
+        {
+            foreach(ContaCorrente conta in ContaCorrente)
+            {
+                Random random = new Random();
+                int numRandom = random.Next(2);
+                int saldoRandom = random.Next(101);
+
+                if(numRandom == 0)
+                {
+                    conta.Saca(saldoRandom);
+                } else
+                {
+                    conta.Deposita(saldoRandom);
+                }
+            }
+
+            foreach (ContaPoupanca conta in ContaPoupanca)
+            {
+                Random random = new Random();
+                int numRandom = random.Next(2);
+                int saldoRandom = random.Next(101);
+
+                if (numRandom == 0)
+                {
+                    conta.Saca(saldoRandom);
+                }
+                else
+                {
+                    conta.Deposita(saldoRandom);
+                }
+            }
+
+            foreach (ContaCorrente conta in ContaCorrente)
+            {
+                Random random = new Random();
+                int numRandom = random.Next(2);
+                int saldoRandom = random.Next(101);
+
+                if (numRandom == 0)
+                {
+                    bool emp = conta.PedeEmprestimo(saldoRandom);
+                }
+            }
+
+            foreach (ContaPoupanca conta in ContaPoupanca)
+            {
+                conta.Saldo += conta.Saldo * conta.Rendimento;
+            }
+
+            foreach (Cartao cartao in Cartao)
+            {
+                Random random = new Random();
+                int numRandom = random.Next(2);
+                int saldoRandom = random.Next(1061);
+
+                if (numRandom == 0)
+                {
+                    cartao.usaCartao(saldoRandom);
+                }
+            }
+
+        }
 
     }
 }

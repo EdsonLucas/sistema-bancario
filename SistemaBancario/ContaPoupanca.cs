@@ -1,6 +1,7 @@
 ﻿using System;
 namespace SistemaBancario
 {
+    [Serializable]
     public class ContaPoupanca
     {
         public int Numero;
@@ -8,7 +9,7 @@ namespace SistemaBancario
         public Cliente Titular1;
         public Cliente Titular2;
         public int TipoConta;
-        double Rendimento;
+        public double Rendimento = 0.01;
 
         public ContaPoupanca(int Numero, double Saldo, Cliente Titular1)
         {

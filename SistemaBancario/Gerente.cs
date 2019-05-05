@@ -4,17 +4,19 @@ using System.Collections.Generic;
 namespace SistemaBancario
 {
     [Serializable]
-    public class Funcionario
+    public class Gerente
     {
         public string Nome;
         public int Codigo;
+        public int Senha;
         public int Cpf;
 
-        public Funcionario(string Nome, int Codigo, int Cpf)
+        public Gerente()
         {
-            this.Nome = Nome;
-            this.Codigo = Codigo;
-            this.Cpf = Cpf;
+            this.Nome = "Letícia";
+            this.Codigo = 123;
+            this.Senha = 123;
         }
+
     }
 }
