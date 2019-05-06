@@ -107,6 +107,15 @@ namespace SistemaBancario
                                         user.Data_Nascimento = DateTime.Parse(Console.ReadLine());
                                         Console.WriteLine("Informe o E-mail do Cliente");
                                         user.Email = Console.ReadLine();
+                                        Random Random = new Random();
+                                        if(Random.Next(2) == 1)
+                                        {
+                                            user.NomeSujo = true;
+                                        }
+                                        else
+                                        {
+                                            user.NomeSujo = false;
+                                        }
 
                                         Console.WriteLine("Qual será o valor do saldo?");
                                         double saldo = double.Parse(Console.ReadLine());
@@ -131,6 +140,16 @@ namespace SistemaBancario
                                                 user2.Data_Nascimento = DateTime.Parse(Console.ReadLine());
                                                 Console.WriteLine("Informe o E-mail do Cliente");
                                                 user2.Email = Console.ReadLine();
+                                                Random Random1 = new Random();
+                                                if (Random1.Next(2) == 1)
+                                                {
+                                                    user2.NomeSujo = true;
+                                                }
+                                                else
+                                                {
+                                                    user2.NomeSujo = false;
+                                                }
+
 
                                                 banco.AdicionaContaCorrente(saldo, user, user2);
                                             }
@@ -154,6 +173,15 @@ namespace SistemaBancario
                                         usr.Data_Nascimento = DateTime.Parse(Console.ReadLine());
                                         Console.WriteLine("Informe o E-mail do Cliente");
                                         usr.Email = Console.ReadLine();
+                                        Random Random2 = new Random();
+                                        if (Random2.Next(2) == 1)
+                                        {
+                                            usr.NomeSujo = true;
+                                        }
+                                        else
+                                        {
+                                            usr.NomeSujo = false;
+                                        }
 
                                         Console.WriteLine("Qual será o valor do saldo?");
                                         double saldo2 = double.Parse(Console.ReadLine());
@@ -178,6 +206,15 @@ namespace SistemaBancario
                                                 usr2.Data_Nascimento = DateTime.Parse(Console.ReadLine());
                                                 Console.WriteLine("Informe o E-mail do Cliente");
                                                 usr2.Email = Console.ReadLine();
+                                                Random Random3 = new Random();
+                                                if (Random3.Next(2) == 1)
+                                                {
+                                                    usr2.NomeSujo = true;
+                                                }
+                                                else
+                                                {
+                                                    usr2.NomeSujo = false;
+                                                }
 
                                                 banco.AdicionaContaPoupanca(saldo2, usr, usr2);
                                             }
@@ -365,6 +402,15 @@ namespace SistemaBancario
                                             user3.Data_Nascimento = DateTime.Parse(Console.ReadLine());
                                             Console.WriteLine("Informe o E-mail do Cliente");
                                             user3.Email = Console.ReadLine();
+                                            Random Random4 = new Random();
+                                            if (Random4.Next(2) == 1)
+                                            {
+                                                user3.NomeSujo = true;
+                                            }
+                                            else
+                                            {
+                                                user3.NomeSujo = false;
+                                            }
 
                                             Console.WriteLine("Deseja vincular dependente a qual tipo de conta?");
                                             Console.WriteLine("[1] Conta Corrente");
