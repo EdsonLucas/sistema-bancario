@@ -9,7 +9,7 @@ namespace SistemaBancario
     {
         public static void Main(string[] args)
         {
-            int Opcao = -1;
+            string Opcao = "-1";
 
             Banco banco = new Banco();
 
@@ -28,9 +28,8 @@ namespace SistemaBancario
                 Console.WriteLine("Deu ruim");
             }
 
-            while (Opcao != 0)
+            while (Opcao != "0")
             {
-                Console.Clear();
                 Console.WriteLine("----------------------------------------------------------------");
                 Console.WriteLine("                    MENU DE OPÇÕES (BANCO)");
                 Console.WriteLine("----------------------------------------------------------------");
@@ -40,11 +39,12 @@ namespace SistemaBancario
                 Console.WriteLine("[0] Sair do Sistema");
                 Console.WriteLine("----------------------------------------------------------------");
                 Console.Write("Escolha uma das opções acima: ");
-                Opcao = Convert.ToInt32(Console.ReadLine());
+                Opcao = Console.ReadLine();
+                Console.WriteLine("\n");
 
                 switch (Opcao)
                 {
-                    case 1:
+                    case "1":
 
                         Gerente adm = new Gerente();
 
@@ -64,10 +64,11 @@ namespace SistemaBancario
                         }
                         else
                         {
-                            int op = -1;
+                            string op = "-1";
 
-                            while (op != 0)
+                            while (op != "0")
                             {
+                                Console.WriteLine("\n");
                                 Console.WriteLine("----------------------------------------------------------------");
                                 Console.WriteLine("                        MENU GERENTE");
                                 Console.WriteLine("----------------------------------------------------------------");
@@ -93,11 +94,12 @@ namespace SistemaBancario
                                 Console.WriteLine("[0] Voltar ao Menu Principal");
                                 Console.WriteLine("----------------------------------------------------------------");
                                 Console.Write("Escolha uma das opções acima: ");
-                                op = int.Parse(Console.ReadLine());
+                                op = Console.ReadLine();
+                                Console.WriteLine("\n");
 
                                 switch (op)
                                 {
-                                    case 1:
+                                    case "1":
                                         Cliente user = new Cliente();
                                         Console.WriteLine("Informe o nome do Cliente");
                                         user.Nome = Console.ReadLine();
@@ -163,7 +165,7 @@ namespace SistemaBancario
                                             }
                                         }
                                         break;
-                                    case 2:
+                                    case "2":
                                         Cliente usr = new Cliente();
                                         Console.WriteLine("Informe o nome do Cliente");
                                         usr.Nome = Console.ReadLine();
@@ -228,25 +230,25 @@ namespace SistemaBancario
                                             }
                                         }
                                         break;
-                                    case 3:
+                                    case "3":
                                         Console.WriteLine("Digite o número da conta que deseja remover");
                                         int conta = int.Parse(Console.ReadLine());
 
                                         banco.RemoveConta(conta);
                                         break;
-                                    case 4:
+                                    case "4":
                                         banco.ListaContas();
                                         break;
-                                    case 5:
+                                    case "5":
                                         banco.ListaCliente();
                                         break;
-                                    case 6:
+                                    case "6":
                                         Console.WriteLine("Digite o número da conta que deseja vincular um cartão");
                                         int numConta = int.Parse(Console.ReadLine());
 
                                         banco.VinculaCartao(numConta);
                                         break;
-                                    case 7:
+                                    case "7":
                                         int tipoConta = -1;
 
                                         while (tipoConta != 1 && tipoConta != 2)
@@ -276,7 +278,7 @@ namespace SistemaBancario
                                             }
                                         }
                                         break;
-                                    case 8:
+                                    case "8":
                                         int tipoConta2 = -1;
 
                                         while (tipoConta2 != 1 && tipoConta2 != 2)
@@ -306,7 +308,7 @@ namespace SistemaBancario
                                             }
                                         }
                                         break;
-                                    case 9:
+                                    case "9":
                                         int tipoConta3 = -1;
 
                                         while (tipoConta3 != 1 && tipoConta3 != 2)
@@ -339,7 +341,7 @@ namespace SistemaBancario
                                             }
                                         }
                                         break;
-                                    case 10:
+                                    case "10":
                                         Console.WriteLine("Digite o número da conta que deseja pedir empréstimo");
                                         int emprestimoConta = int.Parse(Console.ReadLine());
 
@@ -348,7 +350,7 @@ namespace SistemaBancario
 
                                         banco.procuraContaCorrente(emprestimoConta).PedeEmprestimo(valorEmprestimo);
                                         break;
-                                    case 11:
+                                    case "11":
                                         Console.WriteLine("Digite o número da conta");
                                         int contaPagaEmprestimo = int.Parse(Console.ReadLine());
 
@@ -357,7 +359,7 @@ namespace SistemaBancario
 
                                         banco.procuraContaCorrente(contaPagaEmprestimo).PagarEmprestimo(valorPagaEmprestimo);
                                         break;
-                                    case 12:
+                                    case "12":
                                         Console.WriteLine("Digite o número da conta corrente");
                                         int numCorrente = int.Parse(Console.ReadLine());
 
@@ -385,7 +387,7 @@ namespace SistemaBancario
                                             Console.WriteLine("Você não tem nenhum valor a ser pago");
                                         }
                                         break;
-                                    case 13:
+                                    case "13":
                                         int tipoConta5 = -1;
 
                                         while (tipoConta5 != 1 && tipoConta5 != 2)
@@ -431,7 +433,7 @@ namespace SistemaBancario
                                             }
                                         }
                                         break;
-                                    case 14:
+                                    case "14":
                                         Console.WriteLine("Informe o nome do funcionário");
                                         string nomeFunc = Console.ReadLine();
                                         Console.WriteLine("Informe o Cpf do funcionário");
@@ -439,22 +441,22 @@ namespace SistemaBancario
 
                                         banco.AdicionaFuncionario(nomeFunc, cpfFunc);
                                         break;
-                                    case 15:
+                                    case "15":
                                         Console.WriteLine("Digite o código do funcionário que deseja remover");
                                         int func = int.Parse(Console.ReadLine());
 
                                         banco.RemoveFuncionario(func);
                                         break;
-                                    case 16:
+                                    case "16":
                                         banco.ListaFuncionarios();
                                         break;
-                                    case 17:
+                                    case "17":
                                         banco.TotalArmazenado();
                                         break;
-                                    case 18:
+                                    case "18":
                                         banco.TotalEmprestado();
                                         break;
-                                    case 19:
+                                    case "19":
                                         banco.TotalReceber();
                                         break;
                                     default:
@@ -464,12 +466,13 @@ namespace SistemaBancario
                             }
                         }
                         break;
-                    case 2:
+                    case "2":
 
-                        int op2 = -1;
+                        string op2 = "-1";
 
-                        while (op2 != 0)
+                        while (op2 != "0")
                         {
+                            Console.WriteLine("\n");
                             Console.WriteLine("----------------------------------------------------------------");
                             Console.WriteLine("                        MENU FUNCIONÁRIO");
                             Console.WriteLine("----------------------------------------------------------------");
@@ -485,23 +488,24 @@ namespace SistemaBancario
                             Console.WriteLine("[0] Voltar ao Menu Principal");
                             Console.WriteLine("----------------------------------------------------------------");
                             Console.Write("Escolha uma das opções acima: ");
-                            op2 = int.Parse(Console.ReadLine());
+                            op2 = Console.ReadLine();
+                            Console.WriteLine("\n");
 
                             switch (op2)
                             {
-                                case 1:
+                                case "1":
                                     banco.ListaContas();
                                     break;
-                                case 2:
+                                case "2":
                                     banco.ListaCliente();
                                     break;
-                                case 3:
+                                case "3":
                                     Console.WriteLine("Digite o número da conta que deseja vincular um cartão");
                                     int numConta = int.Parse(Console.ReadLine());
 
                                     banco.VinculaCartao(numConta);
                                     break;
-                                case 4:
+                                case "4":
                                     int tipoConta = -1;
 
                                     while (tipoConta != 0)
@@ -531,7 +535,7 @@ namespace SistemaBancario
                                         }
                                     }
                                     break;
-                                case 5:
+                                case "5":
                                     int tipoConta2 = -1;
 
                                     while (tipoConta2 != 0)
@@ -561,7 +565,7 @@ namespace SistemaBancario
                                         }
                                     }
                                     break;
-                                case 6:
+                                case "6":
                                     int tipoConta3 = -1;
 
                                     while (tipoConta3 != 0)
@@ -594,7 +598,7 @@ namespace SistemaBancario
                                         }
                                     }
                                     break;
-                                case 7:
+                                case "7":
                                     Console.WriteLine("Digite o número da conta que deseja pedir empréstimo");
                                     int emprestimoConta = int.Parse(Console.ReadLine());
 
@@ -603,7 +607,7 @@ namespace SistemaBancario
 
                                     banco.procuraContaCorrente(emprestimoConta).PedeEmprestimo(valorEmprestimo);
                                     break;
-                                case 8:
+                                case "8":
                                     Console.WriteLine("Digite o número da conta");
                                     int contaPagaEmprestimo = int.Parse(Console.ReadLine());
 
@@ -612,7 +616,7 @@ namespace SistemaBancario
 
                                     banco.procuraContaCorrente(contaPagaEmprestimo).PagarEmprestimo(valorPagaEmprestimo);
                                     break;
-                                case 9:
+                                case "9":
                                     Console.WriteLine("Digite o número da conta corrente");
                                     int numCorrente = int.Parse(Console.ReadLine());
 
@@ -633,11 +637,9 @@ namespace SistemaBancario
                             }
                         }
                         break;
-                    case 3:
+                    case "3":
                         Console.WriteLine("A few weeks later...");
                         banco.PassaMes();
-                        break;
-                    case 0:
                         break;
                     default:
                         Console.WriteLine("Opção Inválida, pressione uma tecla para tentar novamente...");

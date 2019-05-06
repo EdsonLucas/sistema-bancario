@@ -165,7 +165,6 @@ namespace SistemaBancario
                     Console.WriteLine("NOME SUJO? " + conta.Titular1.NomeSujo);
                     Console.WriteLine("CPF: " + conta.Titular1.Cpf);
                     Console.WriteLine("E-MAIL: " + conta.Titular1.Email);
-                    Console.WriteLine("ENDEREÇO: " + conta.Titular1.Endereco);
                     Console.WriteLine("DATA DE NASCIMENTO: " + conta.Titular1.Data_Nascimento);
                     Console.WriteLine("-------------------------");
                 } else
@@ -175,7 +174,6 @@ namespace SistemaBancario
                     Console.WriteLine("NOME SUJO? " + conta.Titular1.NomeSujo);
                     Console.WriteLine("CPF: " + conta.Titular1.Cpf);
                     Console.WriteLine("E-MAIL: " + conta.Titular1.Email);
-                    Console.WriteLine("ENDEREÇO: " + conta.Titular1.Endereco);
                     Console.WriteLine("DATA DE NASCIMENTO: " + conta.Titular1.Data_Nascimento);
                     Console.WriteLine("-------------------------");
 
@@ -184,7 +182,6 @@ namespace SistemaBancario
                     Console.WriteLine("NOME SUJO? " + conta.Titular2.NomeSujo);
                     Console.WriteLine("CPF: " + conta.Titular2.Cpf);
                     Console.WriteLine("E-MAIL: " + conta.Titular2.Email);
-                    Console.WriteLine("ENDEREÇO: " + conta.Titular2.Endereco);
                     Console.WriteLine("DATA DE NASCIMENTO: " + conta.Titular2.Data_Nascimento);
                     Console.WriteLine("-------------------------");
                 }
@@ -199,7 +196,6 @@ namespace SistemaBancario
                     Console.WriteLine("NOME SUJO? " + conta.Titular1.NomeSujo);
                     Console.WriteLine("CPF: " + conta.Titular1.Cpf);
                     Console.WriteLine("E-MAIL: " + conta.Titular1.Email);
-                    Console.WriteLine("ENDEREÇO: " + conta.Titular1.Endereco);
                     Console.WriteLine("DATA DE NASCIMENTO: " + conta.Titular1.Data_Nascimento);
                     Console.WriteLine("-------------------------");
                 } else
@@ -209,7 +205,6 @@ namespace SistemaBancario
                     Console.WriteLine("NOME SUJO? " + conta.Titular1.NomeSujo);
                     Console.WriteLine("CPF: " + conta.Titular1.Cpf);
                     Console.WriteLine("E-MAIL: " + conta.Titular1.Email);
-                    Console.WriteLine("ENDEREÇO: " + conta.Titular1.Endereco);
                     Console.WriteLine("DATA DE NASCIMENTO: " + conta.Titular1.Data_Nascimento);
                     Console.WriteLine("-------------------------");
 
@@ -218,7 +213,6 @@ namespace SistemaBancario
                     Console.WriteLine("NOME SUJO? " + conta.Titular2.NomeSujo);
                     Console.WriteLine("CPF: " + conta.Titular2.Cpf);
                     Console.WriteLine("E-MAIL: " + conta.Titular2.Email);
-                    Console.WriteLine("ENDEREÇO: " + conta.Titular2.Endereco);
                     Console.WriteLine("DATA DE NASCIMENTO: " + conta.Titular2.Data_Nascimento);
                     Console.WriteLine("-------------------------");
                 }

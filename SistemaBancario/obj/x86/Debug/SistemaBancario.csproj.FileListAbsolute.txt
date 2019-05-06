@@ -4,3 +4,9 @@
 /Users/lucas/Projects/SistemaBancario/SistemaBancario/obj/x86/Debug/SistemaBancario.csproj.CoreCompileInputs.cache
 /Users/lucas/Projects/SistemaBancario/SistemaBancario/obj/x86/Debug/SistemaBancario.exe
 /Users/lucas/Projects/SistemaBancario/SistemaBancario/obj/x86/Debug/SistemaBancario.pdb
+C:\Users\EDSON LUCAS\Desktop\sistema-bancario\SistemaBancario\obj\x86\Debug\SistemaBancario.csprojAssemblyReference.cache
+C:\Users\EDSON LUCAS\Desktop\sistema-bancario\SistemaBancario\obj\x86\Debug\SistemaBancario.csproj.CoreCompileInputs.cache
+C:\Users\EDSON LUCAS\Desktop\sistema-bancario\SistemaBancario\obj\x86\Debug\SistemaBancario.exe
+C:\Users\EDSON LUCAS\Desktop\sistema-bancario\SistemaBancario\obj\x86\Debug\SistemaBancario.pdb
+C:\Users\EDSON LUCAS\Desktop\sistema-bancario\SistemaBancario\bin\Debug\SistemaBancario.exe
+C:\Users\EDSON LUCAS\Desktop\sistema-bancario\SistemaBancario\bin\Debug\SistemaBancario.pdb
