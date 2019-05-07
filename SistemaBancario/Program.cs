@@ -460,7 +460,7 @@ namespace SistemaBancario
                                         banco.TotalReceber();
                                         break;
                                     default:
-                                        Console.WriteLine("Opção Inválida, pressione uma tecla para tentar novamente...");
+                                        Console.WriteLine("Opção Inválida");
                                         break;
                                 }
                             }
@@ -632,7 +632,7 @@ namespace SistemaBancario
                                     }
                                     break;
                                 default:
-                                    Console.WriteLine("Opção Inválida, pressione uma tecla para tentar novamente...");
+                                    Console.WriteLine("Opção Inválida");
                                     break;
                             }
                         }
@@ -642,7 +642,7 @@ namespace SistemaBancario
                         banco.PassaMes();
                         break;
                     default:
-                        Console.WriteLine("Opção Inválida, pressione uma tecla para tentar novamente...");
+                        Console.WriteLine("Opção Inválida");
                         break;
                 }
             }
